@@ -4,8 +4,6 @@ os: linux
 dist: xenial
 node_js:
   - node
-sudo: false
-
 services:
   - docker
 
