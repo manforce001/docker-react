@@ -4,7 +4,7 @@ os: linux
 dist: xenial
 node_js:
   - "7"
-sudo: required
+sudo: false
 
 services:
   - docker
