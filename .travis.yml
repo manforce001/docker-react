@@ -5,8 +5,3 @@ services:
  
 before_install:
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
- 
-script:
-  - docker run akhil/docker-react-aws npm run test -- --coverage
-virtualenv:
-  system_site_packages: true
