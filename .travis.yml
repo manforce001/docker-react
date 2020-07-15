@@ -1,15 +1,12 @@
-
-language: node_js
-os: linux
-dist: xenial
-node_js:
-  - node
+sudo: required
 services:
+#Tell Travis that we need docker
   - docker
-
+ 
+#Tell Travis that before executing the script, create the docker image from the Dockerfile.dev.
 before_install:
-  - docker build -t manforce001/docker-react -f Dockerfile.dev .
-
+  - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
+ 
+#Tell Travis to execute tests (-- -- Coverage will exit npm run test and print out the code coverage)
 script:
-  - docker run manforce001/docker-react npm run test -- --coverage
-  - yarn test:cov
+  - docker run akhil/docker-react-aws npm run test -- --coverage
