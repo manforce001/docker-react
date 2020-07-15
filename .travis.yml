@@ -3,7 +3,7 @@ language: node_js
 os: linux
 dist: xenial
 node_js:
-  - "7"
+  - node
 sudo: false
 
 services:
@@ -14,3 +14,4 @@ before_install:
 
 script:
   - docker run manforce001/docker-react npm run test -- --coverage
+  - yarn test:cov
