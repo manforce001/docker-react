@@ -4,8 +4,8 @@ services:
  
 before_install:
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
- 
-install: travis_wait 30 mvn install
+after_success: 
+  -travis_wait 30 docker run 
 script:
 
   - docker run akhil/docker-react-aws npm run test
