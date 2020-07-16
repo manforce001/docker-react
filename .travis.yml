@@ -1,10 +1,10 @@
+language: bash
+install: travis_wait 30 mvn install
 sudo: required
 services:
   - docker
  
 before_install:
   - docker build -t akhil/docker-react-aws -f Dockerfile.dev .
-after_success:
-  - travis_wait 30 docker run -v /var/run/docker.sock:/var/run/docker.sock --privileged -it yaourt /bin/bash /mkimage-arch-jp.sh
 script:
   - docker run akhil/docker-react-aws npm run test
